@@ -35,7 +35,7 @@ export default function Response(props) {
 					{date.getHours()}:{date.getMinutes()}
 				</Text>
 			</View>
-			<Markdown>{generatedText}</Markdown>
+			<Markdown style={themeStyles.markdown}>{generatedText}</Markdown>
 		</View>
 	);
 }
@@ -61,6 +61,11 @@ const lightStyles = StyleSheet.create({
 	text: {
 		color: "#000",
 	},
+	markdown: {
+		body: {
+			color: "#000", // Text color for light mode
+		},
+	},
 });
 
 const darkStyles = StyleSheet.create({
@@ -69,5 +74,10 @@ const darkStyles = StyleSheet.create({
 	},
 	text: {
 		color: "#fff",
+	},
+	markdown: {
+		body: {
+			color: "#fff", // Text color for dark mode
+		},
 	},
 });
