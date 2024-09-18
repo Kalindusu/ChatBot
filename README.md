@@ -2,7 +2,7 @@
 #  Chat-Bot in React Native
 
 This project contains a basic level chat ui and you can chat with the gemini ai. 
-Ask Everything. I dont know how can you focus the gemini for the one project 
+This is  a chatbot using React Native and Gemini API, providing real-time conversational interactions within a mobile app. The chatbot leverages the Gemini API for intelligent responses, offering a seamless and interactive user experience.
 
 ## Installation
 
@@ -35,17 +35,4 @@ Start the App
   npm start
 ```
 
-
-## 🔗 Links
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/kalindu-sudaraka-3b24482a3)
-
-
-
-
-
-
-## Support
-
-For support, email to me, my email: erenelagoz@gmail.com or send pull request its up to you
 
