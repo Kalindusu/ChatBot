@@ -9,6 +9,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
 export default function Response(props) {
 	const [generatedText, setGeneratedText] = useState("");
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -21,14 +22,16 @@ export default function Response(props) {
 		fetchData();
 	}, []);
 
+	const themeStyles = props.isDarkTheme ? darkStyles : lightStyles;
+
 	return (
-		<View style={styles.response}>
+		<View style={[styles.response, themeStyles.response]}>
 			<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
 				<View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-					<Image source={require("../assets//icons/robot.png")} style={styles.icon} />
-					<Text style={{ fontWeight: 600 }}>ChatBot</Text>
+					<Image source={require("../assets/icons/robot.png")} style={styles.icon} />
+					<Text style={themeStyles.text}>ChatBot</Text>
 				</View>
-				<Text style={{ fontSize: 10, fontWeight: "600" }}>
+				<Text style={[{ fontSize: 10 }, themeStyles.text]}>
 					{date.getHours()}:{date.getMinutes()}
 				</Text>
 			</View>
@@ -41,7 +44,6 @@ const styles = StyleSheet.create({
 	response: {
 		flexDirection: "column",
 		gap: 8,
-		backgroundColor: "#fafafa",
 		marginBottom: 8,
 		padding: 16,
 		borderRadius: 16,
@@ -49,5 +51,23 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 28,
 		height: 28,
+	},
+});
+
+const lightStyles = StyleSheet.create({
+	response: {
+		backgroundColor: "#fafafa",
+	},
+	text: {
+		color: "#000",
+	},
+});
+
+const darkStyles = StyleSheet.create({
+	response: {
+		backgroundColor: "#2c2c2c",
+	},
+	text: {
+		color: "#fff",
 	},
 });

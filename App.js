@@ -45,8 +45,8 @@ export default function App() {
         data={listData}
         renderItem={({ item }) => (
           <View>
-            <Message message={item} />
-            <Response prompt={item} />
+            <Message message={item} isDarkTheme={isDarkTheme} />
+			<Response prompt={item} isDarkTheme={isDarkTheme} />
           </View>
         )}
         keyExtractor={(item, index) => index.toString()}
