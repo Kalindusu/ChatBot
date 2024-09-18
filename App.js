@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		gap: 16,
-		paddingTop: 30,
+		
 		
 	},
 	header: {
@@ -70,8 +70,7 @@ const styles = StyleSheet.create({
 		  marginTop: 0,
 		backgroundColor:'#291D7D',
 		paddingTop:20,
-		paddingLeft:'auto',
-		paddingRight:'auto'
+		paddingLeft:60
 	},
 	icon: {
 		width: 35,
