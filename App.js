@@ -27,7 +27,7 @@ export default function App() {
 			{/* Header */}
 			<View style={styles.header}>
 				<Image source={require("./assets/icons/robot.png") } style={styles.icon} />
-				<Text style={{ fontSize: 25 , fontWeight: "800", color: "white" }}>ChatBot </Text>
+				<Text style={{ fontSize: 25 , fontWeight: "800", color: "white" }}>Chat with Gemini </Text>
 				
 			</View>
 			{/* <View><ChatAi/></View> */}
@@ -67,13 +67,11 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		width: '100%',
 		 height: 70,
-		  marginTop: 10,
-		 
-		  
-		 
+		  marginTop: 0,
 		backgroundColor:'#291D7D',
 		paddingTop:20,
-		paddingLeft:60
+		paddingLeft:'auto',
+		paddingRight:'auto'
 	},
 	icon: {
 		width: 35,

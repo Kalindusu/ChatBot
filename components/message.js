@@ -9,7 +9,7 @@ export default function Message(props) {
 			<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
 				<View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
 					<Image source={require("../assets//icons/user.png")} style={styles.icon} />
-					<Text style={{ fontWeight: 500 }}>Username</Text>
+					<Text style={{ fontWeight: 500 }}>User</Text>
 				</View>
 				<Text style={{ fontSize: 10, fontWeight: 600 }}>
 					{date.getHours()}:{date.getMinutes()}
