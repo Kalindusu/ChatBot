@@ -4,12 +4,13 @@ import { StyleSheet, Text, View, Image, FlatList, TextInput, TouchableOpacity } 
 import Response from "./components/response";
 import Message from "./components/message";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { Ionicons } from '@expo/vector-icons'; // Import icon library
 
 export default function App() {
   const [inputText, setInputText] = useState("");
   const [listData, setListData] = useState([]);
   const [isDarkTheme, setIsDarkTheme] = useState(false); // State to manage theme
-  
+
   const SearchInput = () => {
     setListData((prevList) => [...prevList, inputText]);
     setInputText("");
@@ -30,14 +31,10 @@ export default function App() {
       <View style={[styles.header, themeStyles.header]}>
         <Image source={require("./assets/icons/robot.png")} style={styles.icon} />
         <Text style={[{ fontSize: 25, fontWeight: "800" }, themeStyles.headerText]}>Chat with Gemini</Text>
+        <TouchableOpacity onPress={toggleTheme} style={styles.themeToggleButton}>
+          <Ionicons name={isDarkTheme ? "sunny-outline" : "moon-outline"} size={24} color={themeStyles.themeButtonText.color} />
+        </TouchableOpacity>
       </View>
-
-      {/* Theme Toggle Button */}
-      <TouchableOpacity onPress={toggleTheme} style={styles.themeToggleButton}>
-        <Text style={themeStyles.themeButtonText}>
-          {isDarkTheme ? "Switch to Light Theme" : "Switch to Dark Theme"}
-        </Text>
-      </TouchableOpacity>
 
       {/* Content */}
       <FlatList
@@ -46,7 +43,7 @@ export default function App() {
         renderItem={({ item }) => (
           <View>
             <Message message={item} isDarkTheme={isDarkTheme} />
-			<Response prompt={item} isDarkTheme={isDarkTheme} />
+            <Response prompt={item} isDarkTheme={isDarkTheme} />
           </View>
         )}
         keyExtractor={(item, index) => index.toString()}
@@ -62,8 +59,8 @@ export default function App() {
           onChangeText={(text) => setInputText(text)}
           selectionColor={isDarkTheme ? "#ccc" : "#323232"}
         />
-        <TouchableOpacity onPress={SearchInput}>
-          <Image  source={require("./assets/icons/right-arrow.png")} style={styles.icon} />
+        <TouchableOpacity onPress={SearchInput} style={styles.searchButton}>
+          <Ionicons name="send" size={24} color={themeStyles.input.color} /> {/* Replace with your preferred icon */}
         </TouchableOpacity>
       </View>
     </View>
@@ -82,6 +79,8 @@ const styles = StyleSheet.create({
     marginTop: 0,
     paddingTop: 20,
     paddingLeft: 60,
+    alignItems: 'center', // Center align items vertically
+    justifyContent: 'space-between', // Space between items
   },
   icon: {
     width: 35,
@@ -89,12 +88,7 @@ const styles = StyleSheet.create({
     marginRight: 30,
   },
   themeToggleButton: {
-    alignSelf: 'center',
-    marginVertical: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-    borderWidth: 1,
+    padding: 40,
   },
   searchBar: {
     width: "100%",
@@ -108,12 +102,15 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   input: {
-    width: "100%",
+    width: "80%",
     fontSize: 16,
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderRadius: 32,
     borderWidth: 0.1,
+  },
+  searchButton: {
+    padding: 10,
   },
 });
 
