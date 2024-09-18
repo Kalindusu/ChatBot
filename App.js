@@ -3,7 +3,6 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, FlatList, TextInput, TouchableOpacity } from "react-native";
 import Response from "./components/response";
 import Message from "./components/message";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { Ionicons } from '@expo/vector-icons'; // Import icon library
 
 export default function App() {
@@ -14,6 +13,11 @@ export default function App() {
   const SearchInput = () => {
     setListData((prevList) => [...prevList, inputText]);
     setInputText("");
+  };
+
+  // Reset chat history
+  const resetChat = () => {
+    setListData([]);
   };
 
   // Toggle between light and dark themes
@@ -29,7 +33,9 @@ export default function App() {
 
       {/* Header */}
       <View style={[styles.header, themeStyles.header]}>
-        <Image source={require("./assets/icons/robot.png")} style={styles.icon} />
+        <TouchableOpacity onPress={resetChat}>
+          <Image source={require("./assets/icons/robot.png")} style={styles.icon} />
+        </TouchableOpacity>
         <Text style={[{ fontSize: 25, fontWeight: "800" }, themeStyles.headerText]}>Chat with Gemini</Text>
         <TouchableOpacity onPress={toggleTheme} style={styles.themeToggleButton}>
           <Ionicons name={isDarkTheme ? "sunny-outline" : "moon-outline"} size={24} color={themeStyles.themeButtonText.color} />
