@@ -47,7 +47,7 @@ export default function App() {
 
 			{/* Search-Bar */}
 			<View style={styles.searchBar}>
-				<TextInput placeholder="Ask to PitCrew AI" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)} selectionColor={"#323232"}></TextInput>
+				<TextInput placeholder="Message Gemini" style={styles.input} value={inputText} onChangeText={(text) => setInputText(text)} selectionColor={"#323232"}></TextInput>
 				<TouchableOpacity onPress={SearchInput}>
 					<Image source={require("./assets/icons/right-arrow.png")} style={styles.icon} />
 				</TouchableOpacity>
